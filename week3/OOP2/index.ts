@@ -49,18 +49,25 @@
 
 class ArrayDaramola <T> {
     items: T[] = [];
-    constructor(...args: T[]) {
-        this.items = [...args];
+    private length: number = 0;
+    constructor(...args: T[]) { 
+        let index: number = 0;
+        while (args[index] !== undefined) {
+            this.items[index] = args[index]
+            this.length++;
+            index++;
+        }
     }
 
-    // Basic Array Methods
 
     // Adds one or more elements to the end, returns new length.
     push(...items: T[]): number {
-        for (const item of items) {
-            this.items.push(item);
+        let lastIndex: number = this.items.length - 1
+        for (let i=0; i < items.length; i++) {
+            this.items.length++
+            this.items[lastIndex + 1] = items[0]
         }
-        return this.items.length;
+        return this.items.length
     }
 
     // Removes the last element, returns it or undefined if empty.
@@ -224,7 +231,11 @@ class ArrayDaramola <T> {
 }
 
 let myArray = new ArrayDaramola<number>(1, 2, 3, 4, 5);
-let differentArray = new ArrayDaramola<number> (9, 7, 6, 8);
-let newArray = myArray.concat(differentArray);
+// let differentArray = new ArrayDaramola<number> (9, 7, 6, 8);
+// let newArray = myArray.concat(differentArray);
 
-console.log(newArray.join(' - '))
+console.log(myArray.push(9))
+console.log(myArray.push(10))
+console.log(myArray.items)
+
+// console.log(newArray.join(' - '))
