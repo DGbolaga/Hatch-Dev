@@ -1,0 +1,24 @@
+# Ignore all node_modules in subfolders
+**/node_modules/
+
+# Ignore all .js files compiled from TS
+**/*.js
+**/*.js.map
+
+# Python
+**/__pycache__/
+**/*.pyc
+
+# Logs and temp
+**/*.log
+
+# TypeScript cache
+**/*.tsbuildinfo
+
+# Optional: ignore all lock files if you use yarn or want clean repo
+**/package-lock.json
+
+# VSCode and env
+**/.vscode/
+**/.env
+
